@@ -17,7 +17,7 @@ UNIT_DEFS = {
     'inf': {'name':'歩兵','hp':6, 'cost':{'fund':50,'man':10,'food':20},'move':2,'vision':2,'sea':False,
             'dmgAtk':{'inf':2,'arty':1,'tank':1,'bb':0,'sub':0}, 'dmgDef':{'inf':3,'arty':2,'tank':2,'bb':1,'sub':1}},
     'arty':{'name':'砲兵','hp':7, 'cost':{'fund':90,'man':18,'steel':24},'move':1,'vision':3,'sea':False,
-            'dmgAtk':{'inf':4,'arty':3,'tank':5,'bb':3,'sub':0}, 'dmgDef':{'inf':2,'arty':1,'tank':2,'bb':1,'sub':1}, 'range':1},
+            'dmgAtk':{'inf':4,'arty':3,'tank':5,'bb':3,'sub':0}, 'dmgDef':{'inf':2,'arty':1,'tank':2,'bb':1,'sub':1}}, 'range':1},
     'tank':{'name':'戦車','hp':8, 'cost':{'fund':150,'man':20,'oil':30},'move':3,'vision':4,'sea':False,
             'dmgAtk':{'inf':2,'arty':2,'tank':2,'bb':1,'sub:0'}, 'dmgDef':{'inf':2,'arty':2,'tank':2,'bb':1,'sub':1}},
     'sub': {'name':'潜水艦','hp':7, 'cost':{'fund':420,'man':30,'oil':60,'steel':30},'move':2,'vision':3,'sea':True,'stealth':True,
