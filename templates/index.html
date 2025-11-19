@@ -55,10 +55,21 @@
       <div class="resources" id="resources"></div>
       <div class="controls">
         <button id="endTurnBtn" onclick="sendEndTurn()">ターン終了</button>
-        <div style="margin-top:15px;">
-            <button onclick="resetViewport()">◎ 初期地点へ</button>
-            <span class="small">←矢印キーでスクロール</span>
-        </div>
+        <div class="controls">
+    <button id="endTurnBtn" onclick="sendEndTurn()">ターン終了</button>
+    
+    <div style="margin-top:15px;">
+        <button onclick="resetViewport()">◎ 初期地点へ</button>
+        <span class="small">←矢印キーでスクロール</span>
+    </div>
+    <div id="mapControls" style="margin-top:10px; text-align:center; display: grid; grid-template-columns: repeat(3, 1fr); max-width: 120px; margin-left: auto; margin-right: auto;">
+        <button style="grid-column: 2;" onclick="scrollMap(0, -1)">▲</button>
+        <button style="grid-column: 1;" onclick="scrollMap(-1, 0)">◀</button>
+        <button style="grid-column: 3;" onclick="scrollMap(1, 0)">▶</button>
+        <button style="grid-column: 2;" onclick="scrollMap(0, 1)">▼</button>
+    </div>
+    <div style="margin-top:8px">
+        </div></div>
         <div style="margin-top:8px">
           <div class="small">選択: <span id="selInfo">なし</span></div>
           <div id="actionPanel" style="display:none; margin-top:5px;">
@@ -368,7 +379,32 @@ window.addEventListener('keydown', (e) => {
     if(e.key === 'ArrowRight') viewportX = Math.min(64-25, viewportX+1);
     render();
 });
+function scrollMap(dx, dy) {
+    const ROWS = 32;
+    const COLS = 64;
+    const rowsOnScreen = Math.floor(canvas.height / TILE);
+    const colsOnScreen = Math.floor(canvas.width / TILE);
+    if (dx === 0 && dy === 0) {
+        logToUI("ズーム機能は未実装です。");
+        return;
+    }
 
+    // X軸の移動
+    if (dx !== 0) {
+        viewportX = Math.max(0, Math.min(COLS - colsOnScreen, viewportX + dx));
+    }
+    
+    // Y軸の移動
+    if (dy !== 0) {
+        viewportY = Math.max(0, Math.min(ROWS - rowsOnScreen, viewportY + dy));
+    }
+
+    render();
+}
+function logToUI(message) {
+    const logDiv = document.getElementById('log');
+    logDiv.innerHTML = `<div class="small">${message}</div>` + logDiv.innerHTML;
+}
 </script>
 </body>
 </html>
