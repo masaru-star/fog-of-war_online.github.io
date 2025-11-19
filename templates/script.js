@@ -209,44 +209,6 @@ canvas.addEventListener('click', e => {
         }
     }
     selectedTile = {r, c};
-    const unitsOnTile = units.filter(u => u.x === c && u.y === r && u.owner === myPid);
-    const enemyUnits = units.filter(u => u.x === c && u.y === r && u.owner !== myPid);
-
-    let infoText = `(${r},${c}) `;
-    let unitHtml = '';
-
-    if (unitsOnTile.length > 0) {
-        infoText += `自軍ユニット ${unitsOnTile.length} 体`;
-        unitHtml += '<h4>自軍ユニット情報</h4>';
-        unitsOnTile.forEach(u => {
-            const unitDef = UNIT_DEFS[u.type] || {name: '不明', move: 0};
-            unitHtml += `
-                <div class="small" style="margin-bottom: 3px; background:#0b2740; padding:4px; border-radius:3px;">
-                    **${unitDef.name}** (HP:${u.hp})<br>
-                    残移動力: ${u.moveLeft} / ${unitDef.move}
-                </div>
-            `;
-        });
-    } else if (enemyUnits.length > 0 && mapData[r][c].visible) {
-        infoText += `敵軍ユニット ${enemyUnits.length} 体`;
-        unitHtml += '<h4>敵軍ユニット情報</h4>';
-        // 敵ユニットは移動力を隠す
-        enemyUnits.forEach(u => {
-             const unitDef = UNIT_DEFS[u.type] || {name: '不明'};
-             // 敵ユニットはHPのみ表示
-             unitHtml += `<div class="small" style="margin-bottom: 3px; background:#441111; padding:4px; border-radius:3px;">
-                **${unitDef.name}** (HP:${u.hp})
-             </div>`;
-        });
-    } else {
-        infoText += `ユニットなし`;
-    }
-
-    document.getElementById('selInfo').innerText = infoText;
-    
-    // 新しいパネルにユニット情報を挿入
-    const unitInfoPanel = document.getElementById('unitInfoPanel');
-    unitInfoPanel.innerHTML = unitHtml;
     document.getElementById('selInfo').innerText = `(${r},${c})`;
     
     const u = units.find(u => u.x === c && u.y === r && u.owner === myPid);
