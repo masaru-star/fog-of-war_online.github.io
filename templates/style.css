@@ -1,0 +1,17 @@
+:root{--sea:#00ccff;--land:#ffffff;--ui:#0f172a;--accent:#34d399;--player:#22c55e;--ai1:#ef4444;--ai2:#3b82f6;--ai3:#f97316;--ai4:#8b5cf6;--ai5:#d946ef;--ai6:#db2777;--ai7:#10b981;--ai8:#f59e0b;--ai9:#6b7280;--ai10:#14b8a6;}
+  html,body{height:100%;margin:0;font-family:system-ui,-apple-system,sans-serif;background:#071021;color:#e6eef6}
+  .wrap{display:flex;gap:12px;padding:12px}
+  canvas{background:#000;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.6);cursor:pointer;tabindex:0;outline:none;}
+  .sidebar{width:380px;background:linear-gradient(180deg,#071022 0%, #06131b 100%);border-radius:8px;padding:14px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+  h2{margin:6px 0 10px;color:var(--accent)}
+  .resources{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .res{background:#061726;padding:8px;border-radius:6px;font-size:14px}
+  .controls{margin-top:10px}
+  button,select,input{padding:8px;border-radius:6px;border:0;background:#0b2740;color:#fff;cursor:pointer}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  .log{height:120px;overflow:auto;background:#04121a;padding:8px;border-radius:6px;margin-top:8px;font-size:13px}
+  .small{font-size:13px;color:#9fb3c8}
+
+  #onlineMenu { position:fixed; top:0; left:0; width:100%; height:100%; background:#071021; z-index:1000; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:15px; }
+  .menu-box { background:#0f172a; padding:30px; border-radius:12px; text-align:center; width: 300px; border: 1px solid var(--accent);}
+  .hidden { display:none !important; }
